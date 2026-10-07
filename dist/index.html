@@ -25,12 +25,17 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" data-hero>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-slide is-active" data-hero-slide style="--hero-image: url('assets/images/range-technology.jpg')"></div>
+        <div class="hero-slide" data-hero-slide style="--hero-image: url('assets/images/story/bke-range.webp')"></div>
+        <div class="hero-slide" data-hero-slide style="--hero-image: url('assets/images/story/laporte-field.webp')"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
-          <p class="eyebrow">Bangladesh · Established 1994</p>
-          <h1 class="display">Global technology.<br><span class="accent">Local expertise.</span></h1>
-          <p class="hero-copy">VTI connects international manufacturers with Bangladesh’s institutional, professional and sports-shooting sectors—supported by local project coordination, experienced technicians and dependable after-sales service.</p>
+          <p class="eyebrow" data-hero-eyebrow>Bangladesh · Established 1994</p>
+          <h1 class="display"><span data-hero-title>Global technology.</span><br><span class="accent" data-hero-accent>Local expertise.</span></h1>
+          <p class="hero-copy" data-hero-copy>VTI connects international manufacturers with Bangladesh’s institutional, professional and sports-shooting sectors—supported by local project coordination, experienced technicians and dependable after-sales service.</p>
           <div class="hero-actions"><a class="button" href="solutions.html">Explore Solutions</a><a class="button button-outline" href="principals.html">Meet Our Principals</a></div>
         </div>
       </div>
