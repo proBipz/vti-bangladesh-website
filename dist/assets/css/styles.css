@@ -122,8 +122,13 @@ h1, h2, h3 { text-wrap: balance; }
 .hero::after { content: ""; position: absolute; right: 0; bottom: 0; width: 36%; height: 4px; background: var(--red); }
 .hero-media, .hero-slide { position: absolute; inset: 0; }
 .hero-media { z-index: 0; background: #2d373f; }
-.hero-slide { opacity: 0; transform: scale(1.035); background: var(--hero-image) center/cover no-repeat; transition: opacity 1.05s ease, transform 6.4s ease; }
-.hero-slide.is-active { opacity: 1; transform: scale(1); }
+.hero-media::after { content: ""; position: absolute; z-index: 4; inset: 0; opacity: .26; background: linear-gradient(105deg, transparent 0 44%, rgba(255,255,255,.12) 49%, rgba(225,6,19,.12) 50%, transparent 56%); transform: translateX(-110%); animation: hero-scan 10s ease-in-out infinite; pointer-events: none; }
+.hero-slide { opacity: 0; transform: scale(1.04); background: var(--hero-image) center/cover no-repeat; transition: opacity 1.05s ease; }
+.hero-slide:nth-child(2) { background-position: 72% center; }
+.hero-slide:nth-child(3) { background-position: 62% center; }
+.hero-slide.is-active { opacity: 1; animation: hero-cinema 6.4s ease-out both; }
+@keyframes hero-cinema { from { transform: scale(1.07) translate3d(1.2%,0,0); } to { transform: scale(1.015) translate3d(0,0,0); } }
+@keyframes hero-scan { 0%, 36% { transform: translateX(-110%); } 64%, 100% { transform: translateX(110%); } }
 .hero-content { position: relative; z-index: 2; width: min(760px, 72%); padding: 108px 0 128px; transition: opacity .28s ease, transform .28s ease; }
 .hero-content.is-changing { opacity: 0; transform: translateY(9px); }
 .hero .eyebrow { color: #ff4c55; }
@@ -321,6 +326,7 @@ h1, h2, h3 { text-wrap: balance; }
   .hero { min-height: calc(100svh - 72px); align-items: flex-end; }
   .hero::before { background: linear-gradient(180deg, rgba(32,40,47,.24) 0%, rgba(32,40,47,.86) 50%, rgba(32,40,47,.98) 100%); }
   .hero-slide:not(:first-child) { display: none; }
+  .hero-media::after { display: none; }
   .hero-content { width: 100%; padding: 170px 0 150px; }
   .hero-cert { left: 16px; right: 16px; bottom: 30px; width: auto; }
   .section-head, .intro-grid, .page-hero-grid, .split, .capability-grid, .contact-layout, .story-intro, .image-band, .media-chapter { grid-template-columns: 1fr; }
