@@ -124,7 +124,7 @@ h1, h2, h3 { text-wrap: balance; }
 .hero-media { z-index: 0; background: #2d373f; }
 .hero-media::after { content: ""; position: absolute; z-index: 4; inset: 0; opacity: .26; background: linear-gradient(105deg, transparent 0 44%, rgba(255,255,255,.12) 49%, rgba(225,6,19,.12) 50%, transparent 56%); transform: translateX(-110%); animation: hero-scan 10s ease-in-out infinite; pointer-events: none; }
 .hero-slide { opacity: 0; transform: scale(1.04); background: var(--hero-image) center/cover no-repeat; transition: opacity 1.05s ease; }
-.hero-slide:nth-child(2) { background-position: 72% center; }
+.hero-slide:nth-child(2) { background-color: #202b31; background-position: calc(100% - 4vw) 52%; background-size: min(62vw, 820px) auto; filter: saturate(.82) brightness(1.14); }
 .hero-slide:nth-child(3) { background-position: 62% center; }
 .hero-slide.is-active { opacity: 1; animation: hero-cinema 6.4s ease-out both; }
 @keyframes hero-cinema { from { transform: scale(1.07) translate3d(1.2%,0,0); } to { transform: scale(1.015) translate3d(0,0,0); } }
