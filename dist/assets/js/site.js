@@ -23,6 +23,73 @@ if (current) {
 }
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const hero = document.querySelector('[data-hero]');
+if (hero) {
+  const slides = [...hero.querySelectorAll('[data-hero-slide]')];
+  const heroContent = hero.querySelector('.hero-content');
+  const eyebrow = hero.querySelector('[data-hero-eyebrow]');
+  const title = hero.querySelector('[data-hero-title]');
+  const accent = hero.querySelector('[data-hero-accent]');
+  const copy = hero.querySelector('[data-hero-copy]');
+  const desktopHero = window.matchMedia('(min-width: 861px)');
+  const stories = [
+    {
+      eyebrow: 'Bangladesh · Established 1994',
+      title: 'Global technology.',
+      accent: 'Local expertise.',
+      copy: 'VTI connects international manufacturers with Bangladesh’s institutional, professional and sports-shooting sectors—supported by local project coordination, experienced technicians and dependable after-sales service.'
+    },
+    {
+      eyebrow: 'Range systems · Local support',
+      title: 'Precision systems.',
+      accent: 'Supported locally.',
+      copy: 'From electronic scoring and range technology to installation and lifecycle service, VTI keeps international expertise connected to local operation.'
+    },
+    {
+      eyebrow: 'International principals · Bangladesh',
+      title: 'Trusted partnerships.',
+      accent: 'Practical delivery.',
+      copy: 'VTI coordinates specialist manufacturers, institutional requirements and experienced local technicians—from first discussion through after-sales support.'
+    }
+  ];
+  let heroIndex = 0;
+  let heroTimer;
+
+  const showHero = index => {
+    heroIndex = index;
+    slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
+    heroContent.classList.add('is-changing');
+    window.setTimeout(() => {
+      const story = stories[index];
+      eyebrow.textContent = story.eyebrow;
+      title.textContent = story.title;
+      accent.textContent = story.accent;
+      copy.textContent = story.copy;
+      heroContent.classList.remove('is-changing');
+    }, 280);
+  };
+
+  const stopHero = () => {
+    if (heroTimer) window.clearInterval(heroTimer);
+    heroTimer = undefined;
+  };
+
+  const startHero = () => {
+    stopHero();
+    if (!reduceMotion && desktopHero.matches) {
+      heroTimer = window.setInterval(() => showHero((heroIndex + 1) % stories.length), 5000);
+    }
+  };
+
+  desktopHero.addEventListener('change', event => {
+    if (!event.matches) showHero(0);
+    startHero();
+  });
+  document.addEventListener('visibilitychange', () => document.hidden ? stopHero() : startHero());
+  startHero();
+}
+
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -58,4 +125,3 @@ if (form) {
 }
 
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
-
