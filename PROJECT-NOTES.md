@@ -63,10 +63,21 @@
 
 ### Visual direction
 
-- Deep charcoal foundation, white space and restrained VTI red accents.
+- Soft graphite and blue-grey foundations, warm white space and restrained VTI red accents.
 - Large condensed headings and highly readable body text.
 - Fine technical lines, square geometry and minimal rounded surfaces.
-- Official imagery used sparingly: one range-technology hero and two product images.
+- Official imagery used as editorial chapters: range environments, technical close-ups, product systems and principal-specific imagery.
 - Clear page rhythm instead of dense card grids.
 - Purpose-built mobile navigation and single-column content adaptations.
 
+## Visual storytelling update
+
+- Home: a three-image journey from range infrastructure to scoring and clay systems.
+- Company: the 1948–1994 heritage is followed by the published VTI leadership team.
+- Solutions: product imagery supports the relationship between targets, infrastructure and information.
+- Principals: every manufacturer is paired with an official representative image.
+- Services: technical work becomes the visual bridge between delivery and lifecycle support.
+- Clients: imagery distinguishes institutional ranges, competition systems and sports facilities without inventing named clients.
+- Contact: a quiet technical image reinforces that enquiries begin with a practical requirement.
+
+The current VTI public website does not identify individual founders by name. The website therefore presents the founding legacy in the company history and uses only the verified published titles for current leadership.
