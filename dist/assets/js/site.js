@@ -90,6 +90,28 @@ if (hero) {
   startHero();
 }
 
+document.querySelectorAll('[data-background-rotator]').forEach(rotator => {
+  const slides = [...rotator.querySelectorAll('[data-background-slide]')];
+  if (reduceMotion || slides.length < 2) return;
+  const interval = Number(rotator.dataset.interval) || 5000;
+  let activeIndex = 0;
+  let rotationTimer;
+
+  const startRotation = () => {
+    window.clearInterval(rotationTimer);
+    rotationTimer = window.setInterval(() => {
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides.forEach((slide, index) => slide.classList.toggle('is-active', index === activeIndex));
+    }, interval);
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) window.clearInterval(rotationTimer);
+    else startRotation();
+  });
+  startRotation();
+});
+
 if (!reduceMotion && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
