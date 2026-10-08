@@ -32,7 +32,6 @@ if (hero) {
   const title = hero.querySelector('[data-hero-title]');
   const accent = hero.querySelector('[data-hero-accent]');
   const copy = hero.querySelector('[data-hero-copy]');
-  const desktopHero = window.matchMedia('(min-width: 861px)');
   const stories = [
     {
       eyebrow: 'Bangladesh · Established 1994',
@@ -58,7 +57,18 @@ if (hero) {
 
   const showHero = index => {
     heroIndex = index;
-    slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === index));
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === index;
+      const video = slide.querySelector('video');
+      slide.classList.toggle('is-active', active);
+      if (!video) return;
+      if (active && !reduceMotion) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
     heroContent.classList.add('is-changing');
     window.setTimeout(() => {
       const story = stories[index];
@@ -77,16 +87,13 @@ if (hero) {
 
   const startHero = () => {
     stopHero();
-    if (!reduceMotion && desktopHero.matches) {
+    if (!reduceMotion) {
       heroTimer = window.setInterval(() => showHero((heroIndex + 1) % stories.length), 5000);
     }
   };
 
-  desktopHero.addEventListener('change', event => {
-    if (!event.matches) showHero(0);
-    startHero();
-  });
   document.addEventListener('visibilitychange', () => document.hidden ? stopHero() : startHero());
+  showHero(0);
   startHero();
 }
 
