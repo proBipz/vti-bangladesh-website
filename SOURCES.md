@@ -10,4 +10,11 @@
 - J.G. ANSCHÜTZ: https://www.anschuetz-sport.com/en/
 - Pistol-range hero footage (Pexels, free to use): https://www.pexels.com/video/man-firing-a-pistol-6091304/
 - Rifle-range hero footage (Pexels, free to use): https://www.pexels.com/video/man-using-a-sniper-rifle-6090863/
+- Padel hero footage (Pexels, free to use): https://www.pexels.com/video/padel-match-action-shot-with-players-34445055/
+- FIFA Quality Programme for Football Turf: https://football-technology.fifa.com/innovation/standards/football-turf/fifa-quality-programme-for-football-turf
+- FIFA guidance on football-turf installation and field testing: https://quality.fifa.com/innovation/standards/football-turf/installing-football-turf
+- Bangladesh Shooting Sport Federation: https://www.bssf.com.bd/
+
+Sports-page facility imagery is generated for representative presentation and is not presented as photography of named VTI client projects.
+
 
