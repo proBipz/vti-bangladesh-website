@@ -32,24 +32,40 @@ if (hero) {
   const title = hero.querySelector('[data-hero-title]');
   const accent = hero.querySelector('[data-hero-accent]');
   const copy = hero.querySelector('[data-hero-copy]');
+  const primaryAction = hero.querySelector('[data-hero-primary]');
+  const secondaryAction = hero.querySelector('[data-hero-secondary]');
   const stories = [
     {
       eyebrow: 'Bangladesh · Established 1994',
       title: 'Global technology.',
       accent: 'Local expertise.',
-      copy: 'VTI connects international manufacturers with Bangladesh’s institutional, professional and sports-shooting sectors—supported by local project coordination, experienced technicians and dependable after-sales service.'
+      copy: 'VTI connects international manufacturers with Bangladesh’s institutional, professional and sports-shooting sectors—supported by local project coordination, experienced technicians and dependable after-sales service.',
+      primary: { label: 'Explore Solutions', href: 'solutions.html' },
+      secondary: { label: 'Meet Our Principals', href: 'principals.html' }
     },
     {
       eyebrow: 'Range systems · Local support',
       title: 'Precision systems.',
       accent: 'Supported locally.',
-      copy: 'From electronic scoring and range technology to installation and lifecycle service, VTI keeps international expertise connected to local operation.'
+      copy: 'From electronic scoring and range technology to installation and lifecycle service, VTI keeps international expertise connected to local operation.',
+      primary: { label: 'Explore Solutions', href: 'solutions.html' },
+      secondary: { label: 'Technical Services', href: 'services.html' }
     },
     {
       eyebrow: 'International principals · Bangladesh',
       title: 'Trusted partnerships.',
       accent: 'Practical delivery.',
-      copy: 'VTI coordinates specialist manufacturers, institutional requirements and experienced local technicians—from first discussion through after-sales support.'
+      copy: 'VTI coordinates specialist manufacturers, institutional requirements and experienced local technicians—from first discussion through after-sales support.',
+      primary: { label: 'Meet Our Principals', href: 'principals.html' },
+      secondary: { label: 'Discuss a Project', href: 'contact.html' }
+    },
+    {
+      eyebrow: 'Sports infrastructure · Bangladesh',
+      title: 'Built for sport.',
+      accent: 'Supported by VTI.',
+      copy: 'From padel and tennis courts to football turf, smart scoreboards, running tracks and sports equipment—VTI coordinates import, installation and technical support.',
+      primary: { label: 'Explore Sports Solutions', href: 'sports.html' },
+      secondary: { label: 'Discuss a Sports Project', href: 'contact.html' }
     }
   ];
   let heroIndex = 0;
@@ -76,6 +92,14 @@ if (hero) {
       title.textContent = story.title;
       accent.textContent = story.accent;
       copy.textContent = story.copy;
+      if (primaryAction) {
+        primaryAction.textContent = story.primary.label;
+        primaryAction.href = story.primary.href;
+      }
+      if (secondaryAction) {
+        secondaryAction.textContent = story.secondary.label;
+        secondaryAction.href = story.secondary.href;
+      }
       heroContent.classList.remove('is-changing');
     }, 280);
   };
@@ -154,3 +178,4 @@ if (form) {
 }
 
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
