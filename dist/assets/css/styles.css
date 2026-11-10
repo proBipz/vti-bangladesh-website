@@ -537,3 +537,7 @@ h1, h2, h3 { text-wrap: balance; }
   .reveal { opacity: 1; transform: none; }
 }
 
+
+
+.leader-copy h3 a { color: inherit; text-decoration: none; }
+.leader-copy h3 a:hover, .leader-copy h3 a:focus-visible { color: var(--red); }
